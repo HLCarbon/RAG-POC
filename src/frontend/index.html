@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header-container">
+        <h1 class="app-title">RAG Chat Application</h1>
+        <p class="app-subtitle">Your intelligent assistant for document Q&A</p>
+    </div>
+    <div class="chat-container">
+        <div id="chat-box" class="chat-box">
+            <!-- Chat messages will be added here -->
+        </div>
+        <div id="notification-area" class="notification-area">
+            <!-- Notifications will be displayed here -->
+        </div>
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Ask a question...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js" type="module"></script>
+</body>
+</html> 
