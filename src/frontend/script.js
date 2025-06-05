@@ -6,12 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showNotification(message) {
     notificationArea.textContent = message;
-    notificationArea.style.display = "block";
+    if (message) {
+      notificationArea.style.display = "block";
+    } else {
+      notificationArea.style.display = "none";
+    }
   }
+
+  const backendUrl = "${BACKEND_URL}"; // Placeholder for environment variable
 
   async function checkData() {
     try {
-      const response = await fetch(`http://backend:8000/check-data`);
+      showNotification("Checking data status... Please wait.");
+      const response = await fetch( backendUrl + "/check-data");
+      showNotification("");
     } catch (error) {
       console.error("Error checking data:", error);
       showNotification("Error checking data status.");
@@ -21,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function sendMessageToBackend(message, chatBox) {
     try {
       const response = await fetch(
-        `http://backend:8000/chat?q=${encodeURIComponent(message)}`,
+        backendUrl + "/chat?q=${encodeURIComponent(message)}",
         {
           method: "GET",
         }

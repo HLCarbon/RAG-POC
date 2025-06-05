@@ -21,6 +21,8 @@ services:
     build: ./frontend
     ports:
       - "80:8000"
+    environment:
+      BACKEND_URL: http://localhost:8000
 
   qdrant:
     image: qdrant/qdrant:latest

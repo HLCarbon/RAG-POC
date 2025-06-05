@@ -1,4 +1,4 @@
-function displayMessage(message, type, chatBox) {
+export function displayMessage(message, type, chatBox) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', type);
     if (type === 'bot') {
@@ -10,7 +10,7 @@ function displayMessage(message, type, chatBox) {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-export function displaySourceDocuments(sourceDocs, chatBox) {
+function displaySourceDocuments(sourceDocs, chatBox) {
     if (sourceDocs && sourceDocs.length > 0) {
         const sourceDocContainer = document.createElement('div');
         sourceDocContainer.classList.add('source-documents');
@@ -93,7 +93,7 @@ export function displaySourceDocuments(sourceDocs, chatBox) {
     }
 }
 
-async function processStreamedResponse(reader, chatBox) {
+export async function processStreamedResponse(reader, chatBox) {
     const decoder = new TextDecoder('utf-8');
     let fullResponse = '';
     let botMessageElement = null;

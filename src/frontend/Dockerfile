@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY . .
 
-EXPOSE 8000
+RUN apt-get update && apt-get install -y gettext-base && rm -rf /var/lib/apt/lists/*
 
-CMD ["python", "-m", "http.server", "8000"]
+CMD ["/bin/bash", "-c", "envsubst < /app/script.js > /app/script.js.tmp && mv /app/script.js.tmp /app/script.js && python -m http.server 8000"]
